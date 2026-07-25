@@ -1,0 +1,47 @@
+[
+ {
+  "Gstr": 0.0,
+  "Gcv": -0.353,
+  "pcv": 0.068,
+  "pstr": 1.0,
+  "actual": false,
+  "pred_cv": false,
+  "pred_str": false,
+  "g_test": -0.33198962533928383,
+  "sbs": "FunSearch-OR",
+  "prob": "binpack",
+  "cfg": "weibull"
+ },
+ {
+  "Gstr": 0.0,
+  "Gcv": -0.105,
+  "pcv": 0.49,
+  "pstr": 1.0,
+  "actual": false,
+  "pred_cv": false,
+  "pred_str": false,
+  "g_test": 0.05345301011741104,
+  "sbs": "FunSearch-OR",
+  "prob": "binpack",
+  "cfg": "unif_large"
+ },
+ {
+  "Gstr": 0.0,
+  "Gcv": -0.899,
+  "pcv": 0.005,
+  "pstr": 1.0,
+  "actual": false,
+  "pred_cv": false,
+  "pred_str": false,
+  "g_test": -0.2988391376451078,
+  "sbs": "BestFit",
+  "prob": "binpack",
+  "cfg": "near_half"
+ },
+ {
+  "Gstr": 0.516,
+  "Gcv": 0.127,
+  "pcv": 0.453,
+  "pstr": 0.0,
+  "actual": true,
+  "pred_cv": 

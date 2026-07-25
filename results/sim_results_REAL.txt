@@ -1,0 +1,28 @@
+sigma_x      tail     n |  G_real  true | G_str build% G_cv build% | verdict
+    0.3  gaussian    60 |   0.998 BUILD |         100%        100% | pow: str=1.00  cv=1.00
+    0.3  gaussian   500 |   0.998 BUILD |         100%        100% | pow: str=1.00  cv=1.00
+    0.3     heavy    60 |   0.999 BUILD |         100%        100% | pow: str=1.00  cv=1.00
+    0.3     heavy   500 |   0.999 BUILD |         100%        100% | pow: str=1.00  cv=1.00
+    0.8  gaussian    60 |   0.706 BUILD |         100%         84% | pow: str=1.00  cv=0.84
+    0.8  gaussian   500 |   0.706 BUILD |         100%        100% | pow: str=1.00  cv=1.00
+    0.8     heavy    60 |   0.705 BUILD |         100%         93% | pow: str=1.00  cv=0.93
+    0.8     heavy   500 |   0.705 BUILD |         100%        100% | pow: str=1.00  cv=1.00
+    1.5  gaussian    60 |   0.316 BUILD |         100%         12% | pow: str=1.00  cv=0.12
+    1.5  gaussian   500 |   0.316 BUILD |         100%         59% | pow: str=1.00  cv=0.59
+    1.5     heavy    60 |   0.319 BUILD |         100%         30% | pow: str=1.00  cv=0.30
+    1.5     heavy   500 |   0.319 BUILD |         100%         95% | pow: str=1.00  cv=0.95
+    2.5  gaussian    60 |   0.107    no |         100%          0% | FPR: str=1.00  cv=0.00
+    2.5  gaussian   500 |   0.107    no |         100%          0% | FPR: str=1.00  cv=0.00
+    2.5     heavy    60 |   0.110    no |         100%          5% | FPR: str=1.00  cv=0.05
+    2.5     heavy   500 |   0.110    no |         100%         21% | FPR: str=1.00  cv=0.21
+    3.5  gaussian    60 |   0.037    no |         100%          0% | FPR: str=1.00  cv=0.00
+    3.5  gaussian   500 |   0.037    no |         100%          0% | FPR: str=1.00  cv=0.00
+    3.5     heavy    60 |   0.039    no |         100%          2% | FPR: str=1.00  cv=0.02
+    3.5     heavy   500 |   0.039    no |         100%          2% | FPR: str=1.00  cv=0.02
+
+=== aggregate (TAU=0.15 deployment threshold) ===
+  mean FALSE-POSITIVE rate over 8 no-build conditions:  classical G_str = 1.00   G_cv (ours) = 0.04
+  mean POWER          over 12 build conditions:     classical G_str = 1.00   G_cv (ours) = 0.81
+  interpretation: the regime-oracle G_str is constant at the structural gain and fires
+  everywhere (FPR->1) as identifiability weakens; G_cv tracks the realizable gain and
+  abstains, trading recall for the precision a build/deploy decision needs.

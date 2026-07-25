@@ -1,0 +1,17 @@
+scenario                       n alg    rawgap     Gcv   floor  %closed  gt pC pR
+SAT11-INDU                   300  18     0.128  -0.005   0.099      21%   1  0  1
+SAT11-HAND                   296  15     0.245  -0.002   0.098      63%   1  0  1
+SAT12-ALL                   1614  31     0.237   0.025   0.045      76%   1  0  1
+MAXSAT12-PMS                 876   6     0.084   0.009   0.052      66%   1  0  1
+ASP-POTASSCO                1294  11     0.080   0.005   0.046      37%   1  0  1
+CSP-2010                    2024   2     0.017  -0.000   0.030      22%   1  0  0
+QBF-2011                    1368   5     0.194  -0.004   0.041      69%   1  0  1
+PROTEUS-2014                4021  22     0.259  -0.064   0.028      21%   1  0  1
+PREMARSHALLING-ASTAR-2015  EXCLUDED: FileNotFoundError: [Errno 2] No such file or directory: '/tmp/claude-1000/-home-lyx---/669608aa-358d-476b-921a-a74cbc816197/scratchpad/aslib_data/PREMARSHALLING-ASTAR-2015/description.txt'
+TSP-LION2015                3106   4     0.003  -0.045   0.027   -1680%   0  0  0
+GRAPHS-2015                 5725   7     0.008  -0.021   0.021     -27%   0  0  0
+SAT15-INDU                   300  28     0.081  -0.050   0.103      25%   1  0  0
+
+=== predictor quality over 11 scenarios ===
+G_cv (ours)          TP=0 FP=0 TN=2 FN=9  precision=0.0 recall=0.0
+raw VBS-SBS gap      TP=7 FP=0 TN=2 FN=2  precision=1.0 recall=0.778
