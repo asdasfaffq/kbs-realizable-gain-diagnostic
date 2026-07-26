@@ -1,0 +1,19 @@
+consistency vs saved JSON: 34 configs, 0 mismatches (OK reproduces)
+
+=== build rules vs deployment threshold tau (false-build / false-retain rates) ===
+  tau |                LCB>tau |       G_cv sig |      G_str sig
+ 0.00 | FB=0 FBR=0.00  FR=7 FRR=1.00 | FB=0 FBR=0.00 | FB=3 FBR=0.11
+ 0.05 | FB=0 FBR=0.00  FR=6 FRR=1.00 | FB=0 FBR=0.00 | FB=3 FBR=0.11
+ 0.10 | FB=0 FBR=0.00  FR=5 FRR=1.00 | FB=0 FBR=0.00 | FB=3 FBR=0.10
+ 0.20 | FB=0 FBR=0.00  FR=3 FRR=1.00 | FB=2 FBR=0.06 | FB=5 FBR=0.16
+
+=== scheduling: mean G_cv vs LCB vs CVaR-penalized G_TR (tail-robust) ===
+  tight                    G_cv=   -0.17  LCB=    -1.87  G_TR=     -5.42  g_test=   -0.18  build(G_cv sig)=0
+  loose                    G_cv=  -94.75  LCB=  -475.16  G_TR=  -1154.39  g_test= -588.12  build(G_cv sig)=0
+  wide                     G_cv=   -6.38  LCB=  -179.33  G_TR=   -329.19  g_test=  -40.43  build(G_cv sig)=0
+  verytight                G_cv=   +0.00  LCB=    -0.00  G_TR=     +0.00  g_test=   +0.00  build(G_cv sig)=0
+  tight+loose              G_cv=  -18.16  LCB=  -219.41  G_TR=   -723.76  g_test= -265.04  build(G_cv sig)=0
+  tight+wide               G_cv=   +5.11  LCB=  -119.57  G_TR=   -193.23  g_test=   +3.79  build(G_cv sig)=0
+  tight+verytight          G_cv=   +0.00  LCB=    -0.00  G_TR=     +0.00  g_test=   -0.09  build(G_cv sig)=0
+  loose+wide               G_cv=  -31.10  LCB=  -170.06  G_TR=   -415.20  g_test= -298.78  build(G_cv sig)=0
+  loose+verytight          G_cv=   -9.61  LCB=  -144.49  G_TR=   -448.93  g_test= -273.68  build(G_cv sig)=0

@@ -22,6 +22,7 @@ diagnostics/     the realizable-gain diagnostic pipeline (deterministic, no LLM)
   sched_select.py           weighted-tardiness scheduling panel           (SC)
   probe_ood.py              online bin-packing harness (lower bound, packing loop)
   calib_analysis.py         calibration, non-inferiority (TOST), CVaR tail risk
+  lcb_analysis.py           certified build rule: one-sided LCB (false-build control) + cost-sensitivity + tail-robust gain
   diagnostic_scale_results.json   saved output (so calib_analysis runs without a re-sweep)
 simulation/
   controlled_sim.py         controlled study: why the classical gap over-predicts and G_cv does not
@@ -44,6 +45,7 @@ pip install -r requirements.txt      # numpy, scipy, scikit-learn
 |---|---|---|
 | **34-config diagnostic sweep** (Tables: confusion matrices; $\hat G_{\mathrm{cv}}$ precision 1.00 / recall 0.50, $G_{\mathrm{str}}$ over-predicts with 3 FP) | `cd diagnostics && python diagnostic_scale.py` | per-config `Gstr/Gcv/pred/actual` + confusion matrices; writes `diagnostic_scale_results.json` |
 | **Calibration + tail risk** ($\hat G_{\mathrm{cv}}$ rank/sign-consistent, Spearman 0.90, but not numerically calibrated; scheduling non-inferiority FAIL, CVaR$_{0.95}$ up to $1.6\times10^4$) | `cd diagnostics && python calib_analysis.py` | consistency check (0 mismatches vs. the saved sweep), OLS slope/intercept, Spearman, per-config scheduling CVaR + non-inferiority |
+| **Certified build rule** (one-sided LCB controls false builds: 0 false builds at every threshold, but conservative; the significance rule stays operative) | `cd diagnostics && python lcb_analysis.py` | false-build / false-retain rates of `LCB>tau` vs. the significance rule; CVaR-penalized tail-robust gain on scheduling |
 | **Controlled simulation** (classical gap false-positive rate 1.00 vs. $\hat G_{\mathrm{cv}}$ 0.04 over the no-build conditions) | `cd simulation && python controlled_sim.py` | grid over feature identifiability × tail × sample size, with a known ground-truth realizable gain |
 | **ASlib external validation** (on curated benchmarks the raw VBS$-$SBS gap does not over-predict) | see `aslib/` below | per-scenario confusion + PPV; needs the ASlib data (one-time clone) |
 
