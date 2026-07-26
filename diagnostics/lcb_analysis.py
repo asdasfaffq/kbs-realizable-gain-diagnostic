@@ -108,6 +108,19 @@ def main():
             tp += build and netpos; tn += (not build) and (not netpos)
         nb=sum(1 for r in rows if r['g_test']<=tau); npv=len(rows)-nb
         return fb, fr, (fb/max(1,nb)), (fr/max(1,npv))
+    # MC3: predictor precision/recall under an EFFECT-SIZE label (net gain > tau), not p<0.05
+    def prec_rec(build_fn, tau):
+        tp=fp=fn=0
+        for r in rows:
+            build=build_fn(r); netpos=r['g_test']>tau
+            tp += build and netpos; fp += build and not netpos; fn += (not build) and netpos
+        return tp,fp,fn,(tp/max(1,tp+fp)),(tp/max(1,tp+fn))
+    print("\n=== MC3: significance-rule quality under EFFECT-SIZE label g_test>tau (not p<0.05) ===")
+    for tau in (0.0, 0.05, 0.1):
+        c=prec_rec(lambda r:r['pred_cv'], tau); s=prec_rec(lambda r:r['pred_str'], tau)
+        print(f"  tau={tau:.2f}: G_cv precision={c[3]:.2f} recall={c[4]:.2f} (TP{c[0]}/FP{c[1]}/FN{c[2]}) | "
+              f"G_str precision={s[3]:.2f} recall={s[4]:.2f} (FP{s[1]})")
+
     print("\n=== build rules vs deployment threshold tau (false-build / false-retain rates) ===")
     print(f"{'tau':>5} | {'LCB>tau':>22} | {'G_cv sig':>14} | {'G_str sig':>14}")
     for tau in (0.0, 0.05, 0.1, 0.2):

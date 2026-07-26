@@ -1,5 +1,10 @@
 consistency vs saved JSON: 34 configs, 0 mismatches (OK reproduces)
 
+=== MC3: significance-rule quality under EFFECT-SIZE label g_test>tau (not p<0.05) ===
+  tau=0.00: G_cv precision=1.00 recall=0.29 (TP2/FP0/FN5) | G_str precision=0.57 recall=0.57 (FP3)
+  tau=0.05: G_cv precision=1.00 recall=0.33 (TP2/FP0/FN4) | G_str precision=0.57 recall=0.67 (FP3)
+  tau=0.10: G_cv precision=1.00 recall=0.40 (TP2/FP0/FN3) | G_str precision=0.57 recall=0.80 (FP3)
+
 === build rules vs deployment threshold tau (false-build / false-retain rates) ===
   tau |                LCB>tau |       G_cv sig |      G_str sig
  0.00 | FB=0 FBR=0.00  FR=7 FRR=1.00 | FB=0 FBR=0.00 | FB=3 FBR=0.11
